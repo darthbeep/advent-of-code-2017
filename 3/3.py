@@ -1,17 +1,10 @@
 import math
 
-def ring(num):
+def ring_num(num):
     return [int(math.ceil(math.sqrt(num))/2), math.ceil(math.sqrt(num))]
 
-def start(num):
-    r = ring(num)[0]
-    rs = ring(num)[1]-1
-    #rstart = num - ((r+1) * (r+1))
-    #print [rs, rstart]
-    lasts = rs * rs
-    rdist = num-lasts
-    mdist = rdist % r
-
+def solve_part1_with_math(num):
+    r = ring_num(num)[0]
     square = (1+((r-1)*2)) ** 2
     s1 = square + r
     s2 = square + (r*3)
@@ -22,10 +15,5 @@ def start(num):
     for thing in close:
         closest = min(closest, abs(num-thing))
     return closest+r
-#print start(265149)
 
-def fillGrid(num):
-    x = 0
-    y = 0
-print start(265149)
-#print math.sqrt(1024)
+print solve_part1_with_math(265149)
